@@ -28,7 +28,7 @@ jobs:
       - name: Enable auto-merge for Dependabot PRs
         if: |
           contains(steps.dependabot-metadata.outputs.dependency-type, 'development') ||
-          (steps.dependabot-metadata.outputs.dependency-type == 'production' && steps.dependabot-metadata.outputs.update-type == 'security:patch') ||
+          (contains(steps.dependabot-metadata.outputs.dependency-type, 'production') && steps.dependabot-metadata.outputs.update-type == 'version-update:semver-minor') ||
           (steps.dependabot-metadata.outputs.dependency-type == 'indirect' && steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch')
         run: gh pr merge --auto --merge "$PR_URL"
         env:
