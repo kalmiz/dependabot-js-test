@@ -30,7 +30,8 @@ jobs:
           contains(steps.dependabot-metadata.outputs.dependency-type, 'development') ||
           (contains(steps.dependabot-metadata.outputs.dependency-type, 'production') && steps.dependabot-metadata.outputs.update-type == 'version-update:semver-minor') ||
           steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch' ||
-          steps.dependabot-metadata.outputs.update-type == 'null'
+          steps.dependabot-metadata.outputs.update-type == 'null' ||
+          steps.dependabot-metadata.outputs.update-type == ''
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
