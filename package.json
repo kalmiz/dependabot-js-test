@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/kalmiz/dependabot-js-test#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "lodash": "^4.17.21"
   }
 }
